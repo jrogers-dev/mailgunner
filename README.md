@@ -1,8 +1,10 @@
 # README
-
+```
 This app functions as an API backend for queuing and sending emails via Mailgun's API. 
 
-It utilizes Rails as the API server, JSON Web Tokens via Devise for authentication, SQLite to store user accounts and tokens, Redis as the job queue manager, and Sidekiq to connect Rails to Redis.
+It utilizes Rails as the API server, JSON Web Tokens via Devise for authentication, 
+SQLite to store user accounts and tokens, Redis as the job queue manager, and Sidekiq 
+to connect Rails to Redis.
 
 
 Requirements:
@@ -63,7 +65,8 @@ POST the same payload to /sign_in to get a bearer token for authentication:
             "password": "yourPassword"
         }
     }
-Make sure to copy the bearer token from the response header so you can include it in your requests that require authentication.
+Make sure to copy the bearer token from the response header so you can include it in your 
+requests that require authentication.
 
 
 POST a JSON payload in this format to /mail to queue a message to be sent:
@@ -80,8 +83,10 @@ Make sure to include your bearer token in the request's Authorization header.
 
 
 
-Alternatively, you can include a 'template' key and a 'parameters' nested with 'arg1', 'arg2', 'arg3' and 'arg4' keys.
-Any, or all of the arg keys can be empty, but must exist if 'template' is present. Anything within the 'body' key will be appended after the template contents:
+Alternatively, you can include a 'template' key and a 'parameters' nested with 'arg1', 
+'arg2', 'arg3' and 'arg4' keys.
+Any, or all of the arg keys can be empty, but must exist if 'template' is present. 
+Anything within the 'body' key will be appended after the template contents:
     {
         "api_key": "YourMailGunAPIKey",
         "domain": "YourMailgunDomain.mailgun.org",
@@ -118,4 +123,6 @@ reset_password:
 
 
 
-Once the payload is successfully queued your message will be sent shortly. If you're using a sandboxed domain, the email will likely land in your spam folder.
+Once the payload is successfully queued your message will be sent shortly. 
+If you're using a sandboxed domain, the email will likely land in your spam folder.
+```
